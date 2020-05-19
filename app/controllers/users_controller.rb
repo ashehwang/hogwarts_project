@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         @user = User.new(user_param)
         if @user.save
             flash[:notice] = "Created #{@user.full_name}"
+            login(@user)
             redirect_to user_url(@user.id)
         else 
             render :new
@@ -49,6 +50,6 @@ class UsersController < ApplicationController
     private
 
     def user_param
-        params.require(:user).permit(:first_name, :last_name, :house, :age, :description, :gender)
+        params.require(:user).permit(:first_name, :last_name, :house, :age, :description, :gender, :password, :username)
     end
 end

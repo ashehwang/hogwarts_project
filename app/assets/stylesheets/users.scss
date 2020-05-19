@@ -33,3 +33,22 @@ input,
 textarea {
   background: white;
 }
+
+header {
+  text-align: right;
+}
+
+.right {
+  text-align: right;
+}
+
+#hootbox {
+  width: 400px;
+  height: 28px;
+}
+
+input[type="submit"] {
+  height: 28px;
+  width: 54px;
+  font-size: 12px;
+}

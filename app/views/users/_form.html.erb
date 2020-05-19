@@ -13,6 +13,17 @@
 <% end %>
 <% end %>
 
+<% if !user.persisted? %>
+    <label for="username">Username: </label>
+    <input type="text" name="user[username]" id="username" value="<%=user.username%>">
+    <br>
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" name="user[password]" id="password">
+    <br>
+    <br>
+<% end %>
+
 <label for="first_name">First Name:</label>
 <input type="text" name="user[first_name]" id="first_name" value="<%=user.first_name%>">
 <br>

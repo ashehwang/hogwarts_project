@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header>
+    <% if current_user.nil? %>
+      <a href="<%= new_session_url%>">Sign In</a>
+      <br>
+      <a href="<%= new_user_url%>">Enroll</a>
+    <% else %>
+      <p>Welcome to the wizarding world, <%= current_user.first_name %>! </p>
+      <form action="<%= session_url %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Log Out">
+      </form>
+    <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
