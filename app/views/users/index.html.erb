@@ -1,0 +1,52 @@
+<h1>Welcome to Hogwarts!</h1>
+<br>
+<br>
+<table>
+    <tr>
+        <th>Houses</th>
+        <th>Head of House</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Griffindor</td>
+        <td>Minerva Mcgonagall</td>
+        <td>Gryffindor values courage, bravery, nerve and chivalry.</td>
+    </tr>
+    <tr>
+        <td>Ravenclaw</td>
+        <td>Filius Flitwick</td>
+        <td>Ravenclaw values intelligence, creativity, learning, and wit.</td>
+    </tr>
+    <tr>
+        <td>Hufflepuff</td>
+        <td>Pomona Sprout</td>
+        <td>Hufflepuff values hard work, patience, justice, and loyalty. </td>
+    </tr>
+    <tr>
+        <td>Slytherin</td>
+        <td>Severus Snape</td>
+        <td>Slytherin house values ambition, cunning, leadership, and resourcefulness.</td>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<h3>This our list of Students in Hogwarts.</h3>
+<br>
+<ul>
+    <% @users.each do |user| %>
+    <li><a href="<%=user_url(user.id)%>%"><%= user.full_name %></a></li>
+    <% end %>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="<%=new_user_url%>">Ready to Enroll?</a>

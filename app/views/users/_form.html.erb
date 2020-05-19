@@ -1,0 +1,52 @@
+<% action_url = user.persisted? ? user_url(user) : users_url %>
+<% method_value = user.persisted? ? "PATCH" : "POST" %>
+<% submit_value = user.persisted? ? "Update your profile" : "Enroll!" %>
+
+
+
+<form action="<%=action_url%>" method="POST">
+<input type="hidden" name="_method" value="<%=method_value%>">
+
+<% if !user.errors.full_messages.empty? %>
+<% user.errors.full_messages.each do |msg| %>
+<%= msg %>
+<% end %>
+<% end %>
+
+<label for="first_name">First Name:</label>
+<input type="text" name="user[first_name]" id="first_name" value="<%=user.first_name%>">
+<br>
+<br>
+<label for="last_name">Last Name:</label>
+<input type="text" id="last_name" name="user[last_name]" value="<%=user.last_name%>">
+<br>
+<br>
+<label for="age">Age:</label>
+<input type="text" id="age" name="user[age]" value="<%=user.age%>">
+<br>
+<br>
+<h4>What is your Gender?</h4>
+<input type="radio" name="user[gender]" value="Female" <%= user.gender == "Female" ? "checked" : "" %>>
+<label for="">Witch</label>
+<input type="radio" name="user[gender]" value="Male" <%= user.gender == "Male" ? "checked" : ""%>>
+<label for="">Wizard</label>
+<br>
+<br>
+<h4>The Sorting Hat</h4>
+<select name="user[house]" id="house">
+    <option value="Griffindor" <%= user.house == "Griffindor" ? "selected" : ""%> >Griffindor</option>
+    <option value="Ravenclaw" <%= user.house == "Ravenclaw" ? "selected" : ""%> >Ravenclaw</option>
+    <option value="Hufflepuff" <%= user.house == "Hufflepuff" ? "selected" : ""%> >Hufflepuff</option>
+    <option value="Slytherin" <%= user.house == "Slytherin" ? "selected" : ""%> >Slytherin</option>
+</select>
+
+<br>
+<br>
+<br>
+<label for="description">Please introduce yourself!</label>
+<textarea name="user[description]" id="description" cols="30" rows="10" ><%=user.description%></textarea>
+<br>
+<br>
+<input type="submit" value="<%=submit_value%>">
+
+</form>
